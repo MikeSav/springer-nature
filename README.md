@@ -16,6 +16,8 @@ So far, I have the app outputting the DOM tree as desired. We can toggle Childre
 
 I have briefly added a 3rd party component "Dragula" to provide the drop/drag functionality. At first this doesn't eem to provide support for nesting but the service rather than the directive may provide suitable support. Once again, a third party module is being introduced for now as a means of experimentation - this does not rule out a custom, hand written solution.
 
+:warning: I have also noticed that despite nesting being a problem with "Dragula" an item can be dropped into another... this is not great! More research / alternatives needed.
+
 ######  Pending: Browser testing only on Mac OS 10.12.3 using Chrome 57.0.2987.133, Firefox 52.0.2  and Sarafi 10.0.3 (12602.4.8)
 ######  Pending: The Interface / Design is not responsive.
 

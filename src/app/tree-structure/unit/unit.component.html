@@ -11,6 +11,9 @@
     </div>
     <!-- Can't have multiple template bindings on one element... oh Angular! -->
     <div *ngIf="showChildren">
-        <sn-activity *ngFor="let activity of activities" [activity]="activity"></sn-activity>
+        <sn-activity *ngFor="let activity of activities"
+                     [activity]="activity"
+                     [dragula]='"bag-activity"'
+                     [dragulaModel]='activities'></sn-activity>
     </div>
 </div>

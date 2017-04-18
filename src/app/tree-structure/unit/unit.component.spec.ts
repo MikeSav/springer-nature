@@ -15,10 +15,12 @@ import {
 
 @Component({
 	selector: 'sn-activity',
-	template: '<div> Activity {{ activity | json}}</div>'
+	template: '<div> Activity {{ activity | json}} {{dragula | json}} {{dragulaModel | json}}</div>'
 })
 class TestActivityComponent {
 	@Input() activity: any;
+	@Input() dragula: any;
+	@Input() dragulaModel: any;
 }
 
 import { UnitComponent } from './unit.component';

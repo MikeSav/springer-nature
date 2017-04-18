@@ -12,7 +12,10 @@ I was also unsure if I was expected to convert the XML to pure JSON in the backe
 
 So far, I have the app outputting the DOM tree as desired. We can toggle Children nodes and I have introduced a small icon that when hovered over will show a CSS tooltip containing the DOM Node id property… in hindsight I don’t like this implementation and would rather the tooltip is shown when hovering over the appropriate note (that way we conform to the original design). Speaking of which I have noticed that there is a CSS gradient for the background colour of the “tags” (I mean `<>`) besides the node type label. I shall add this later by adding a background gradient to the text (not a browser standard so far) or I will use a image, SVG or font icon.
 
-######  Pending: Drag and Drop functionality!
+######  Update: Drag and Drop functionality!
+
+I have briefly added a 3rd party component "Dragula" to provide the drop/drag functionality. At first this doesn't eem to provide support for nesting but the service rather than the directive may provide suitable support. Once again, a third party module is being introduced for now as a means of experimentation - this does not rule out a custom, hand written solution.
+
 ######  Pending: Browser testing only on Mac OS 10.12.3 using Chrome 57.0.2987.133, Firefox 52.0.2  and Sarafi 10.0.3 (12602.4.8)
 ######  Pending: The Interface / Design is not responsive.
 

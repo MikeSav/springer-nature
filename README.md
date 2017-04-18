@@ -12,9 +12,9 @@ I was also unsure if I was expected to convert the XML to pure JSON in the backe
 
 So far, I have the app outputting the DOM tree as desired. We can toggle Children nodes and I have introduced a small icon that when hovered over will show a CSS tooltip containing the DOM Node id property… in hindsight I don’t like this implementation and would rather the tooltip is shown when hovering over the appropriate note (that way we conform to the original design). Speaking of which I have noticed that there is a CSS gradient for the background colour of the “tags” (I mean <>) besides the node type label. I shall add this later by adding a background gradient to the text (not a browser standard so far) or I will use a image, SVG or font icon.
 
-### Pending: Drag and Drop functionality!
-### Pending: Browser testing only on Mac OS 10.12.3 using Chrome 57.0.2987.133, Firefox 52.0.2  and Sarafi 10.0.3 (12602.4.8)
-### Pending: The Interface / Design is not responsive.
+######  Pending: Drag and Drop functionality!
+######  Pending: Browser testing only on Mac OS 10.12.3 using Chrome 57.0.2987.133, Firefox 52.0.2  and Sarafi 10.0.3 (12602.4.8)
+######  Pending: The Interface / Design is not responsive.
 
 
 I wanted to create something quick and relively simple

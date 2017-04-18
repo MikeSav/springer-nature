@@ -1,5 +1,26 @@
 # SpringerNature
 
+## Introduction and Overview by Mike
+
+I wanted to create something quick and easy, I didn’t want to devote too much time to the test (maybe an evening or two), rather I wished to develop something, then review on how suitable it and accurate the solution is and either continue to refactor and enhance or (on your advice) stop and consider the solution a failure.
+
+So I have tried to reduce the dependency on third party libraries. Thus this example has no Flux / redux (notice the small ‘r’) dependencies - there is no predictable state container in the application. For a larger app, or when I have more time to devote to the task I would have introduced such an architecture with ngrx providing Store, Actions and Effects.
+
+In the first implementation, I decided to create a series of nested Components in which each represents a XML node. I am unsure if this is the best implementation, another idea was to create a single DOM NODE Component that we could configure due to an input, for example: If the node input is a “unit”, then we have children nodes, etc., etc.
+
+I was also unsure if I was expected to convert the XML to pure JSON in the backend / data service – this would be advantageous (especially where Sarafi is concerned). However due to time constraints and the fact I wanted to refrain from using a third party convertor I have the app using NodeLists from the returned XML.
+
+So far, I have the app outputting the DOM tree as desired. We can toggle Children nodes and I have introduced a small icon that when hovered over will show a CSS tooltip containing the DOM Node id property… in hindsight I don’t like this implementation and would rather the tooltip is shown when hovering over the appropriate note (that way we conform to the original design). Speaking of which I have noticed that there is a CSS gradient for the background colour of the “tags” (I mean <>) besides the node type label. I shall add this later by adding a background gradient to the text (not a browser standard so far) or I will use a image, SVG or font icon.
+
+### Pending: Drag and Drop functionality!
+### Pending: Browser testing only on Mac OS 10.12.3 using Chrome 57.0.2987.133, Firefox 52.0.2  and Sarafi 10.0.3 (12602.4.8)
+### Pending: The Interface / Design is not responsive.
+
+
+I wanted to create something quick and relively simple
+
+# Technical Stuff...
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
 
 ## Development server

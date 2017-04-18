@@ -1,0 +1,16 @@
+<div class="tree__node">
+    <div class="tree__node__name" (click)="toggleChildren()">
+        <span class="tree__toggle" *ngIf="showChildren">&#9660;</span>
+        <span class="tree__toggle" *ngIf="!showChildren">&#9654;</span>
+        <span class="tree__arrow">&lt;</span>
+        <span class="tree__arrow">&gt;</span>
+        unit
+        <span class="tree__icon">
+        id <span class="tooltip">{{id}}</span>
+        </span>
+    </div>
+    <!-- Can't have multiple template bindings on one element... oh Angular! -->
+    <div *ngIf="showChildren">
+        <sn-activity *ngFor="let activity of activities" [activity]="activity"></sn-activity>
+    </div>
+</div>

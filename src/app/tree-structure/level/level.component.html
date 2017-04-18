@@ -1,0 +1,15 @@
+<div class="tree__node">
+    <div class="tree__node__name" (click)="toggleChildren()">
+        <span class="tree__toggle" *ngIf="showChildren">&#9660;</span>
+        <span class="tree__toggle" *ngIf="!showChildren">&#9654;</span>
+        <span class="tree__arrow">&lt;</span>
+        <span class="tree__arrow">&gt;</span>
+        level
+        <span class="tree__icon">
+        id <span class="tooltip">{{id}}</span>
+        </span>
+    </div>
+    <div *ngIf="showChildren">
+        <sn-unit *ngFor="let unit of units" [unit]="unit"></sn-unit>
+    </div>
+</div>

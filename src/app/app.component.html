@@ -1,3 +1,8 @@
-<h1>
-  {{title}}
-</h1>
+<div class="intro">
+    Click button to load XML...
+    <button class="btn" (click)="loadXML()">Load XML</button>
+</div>
+
+<sn-level *ngFor="let level of levels"
+          [level]="level">
+</sn-level>

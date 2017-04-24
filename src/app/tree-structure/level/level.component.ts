@@ -11,6 +11,11 @@ export class LevelComponent implements OnInit {
 	units: any;
 	showChildren: boolean = false;
 	id: string;
+	unitsOptions: any = {
+		moves: function(el, container, handle) {
+			return !handle.classList.contains('activity');
+		}
+	};
 
 	ngOnInit() {
 		this.id = this.level.getAttribute('id');

@@ -1,5 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { DebugElement, Component, Input } from '@angular/core';
+
+import { DragulaDirective, DragulaService } from 'ng2-dragula/ng2-dragula';
+
+
 import {
 	assertThat,
 	is,
@@ -31,7 +35,11 @@ describe('LevelComponent', () => {
 		TestBed.configureTestingModule({
 			declarations: [
 				LevelComponent,
-				TestUnitComponent
+				TestUnitComponent,
+				DragulaDirective
+			],
+			providers: [
+				DragulaService
 			]
 		})
 			.compileComponents();

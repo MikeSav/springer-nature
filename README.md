@@ -6,7 +6,7 @@ I wanted to create something quick and easy, I didn’t want to devote too much 
 
 So I have tried to reduce the dependency on third party libraries. Thus this example has no Flux / redux (notice the small ‘r’) dependencies - there is no predictable state container in the application. For a larger app, or when I have more time to devote to the task I would have introduced such an architecture with `ngrx` providing Store, Actions and Effects.
 
-In the first implementation, I decided to create a series of nested Components in which each represents a XML node. I am unsure if this is the best implementation, another idea was to create a single DOM NODE Component that we could configure due to an input, for example: If the node input is a “unit”, then we have children nodes, etc., etc.
+In this first implementation, I decided to create a series of nested Components in which each represents a XML node. I am unsure if this is the best implementation (It doesn't seem that DRY), another idea was to create a single DOM NODE Component that we could configure due to an input, for example: If the node input is a “unit”, then we have children nodes, etc., etc.
 
 I was also unsure if I was expected to convert the XML to pure JSON in the backend / data service – this would be advantageous (especially where Sarafi is concerned). However due to time constraints and the fact I wanted to refrain from using a third party convertor I have the app using NodeLists from the returned XML.
 
@@ -14,12 +14,14 @@ So far, I have the app outputting the DOM tree as desired. We can toggle Childre
 
 ######  Update: Drag and Drop functionality!
 
-I have briefly added a 3rd party component "Dragula" to provide the drop/drag functionality. At first this doesn't eem to provide support for nesting but the service rather than the directive may provide suitable support. Once again, a third party module is being introduced for now as a means of experimentation - this does not rule out a custom, hand written solution.
+I have added a 3rd party component "Dragula" to provide the drop/drag functionality. The reason I have included this is due to time constraints (I am currently sandwiched between two vacations and I have a full time job), a custom service can be provided at request as it shouldn't be too hard to create a service / directive using the HTML 5 drag and drop API (see https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API)
 
-:warning: I have also noticed that despite nesting being a problem with "Dragula" an item can be dropped into another... this is not great! More research / alternatives needed.
+Also Dragula seemed to provide the necessary functionality and is relatively easy to integrate / set up.
 
+######  Pending: Means to add nodes to empty parent nodes or nodes that no longer contain children.
 ######  Pending: Browser testing only on Mac OS 10.12.3 using Chrome 57.0.2987.133, Firefox 52.0.2  and Sarafi 10.0.3 (12602.4.8)
 ######  Pending: The Interface / Design is not responsive.
+######  Pending: There are no E2E tests.
 
 # Technical Stuff...
 

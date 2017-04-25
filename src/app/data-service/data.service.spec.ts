@@ -1,10 +1,11 @@
 import { async, TestBed, inject } from '@angular/core/testing';
 import {
-    ResponseOptions,
     BaseRequestOptions,
     Http,
     Response,
-    XHRBackend
+    ResponseOptions,
+    XHRBackend,
+    Headers
 } from '@angular/http';
 import {
     MockBackend,
@@ -15,8 +16,7 @@ import {
     assertThat,
     is,
     truthy,
-    hasProperties,
-    contains
+    contains,
 } from 'hamjest';
 
 import {
@@ -36,7 +36,7 @@ import { WindowService } from '../window-service/window.service';
 
 import { DataService } from './data.service';
 
-describe('DataService', () => {
+fdescribe('DataService', () => {
     beforeEach(() => {
         TestBed.configureTestingModule({
             providers: [
@@ -58,6 +58,31 @@ describe('DataService', () => {
     let sut: DataService;
     let backend: MockBackend;
 
+    // ToDo: Determine why returnXMLdoc is not parsing...
+    const options = new ResponseOptions({
+        body: `<?xml version="1.0" encoding="UTF-8"?>
+		<package>
+		  <level id="l1">
+			<unit id="u1">
+			  <activity id="a1"></activity>
+			  <activity id="a2"></activity>
+			</unit>
+			<unit id="u2">
+			  <activity id="a3"></activity>
+			</unit>
+		  </level>
+		  <level id="l2">
+			<unit id="u3">
+			  <activity id="a4"></activity>
+			</unit>
+		  </level>
+		</package>`,
+        status: 200,
+        headers: new Headers({
+            'content-type': 'application/xml'
+        })
+    });
+
     beforeEach(inject([
         DataService, MockBackend
     ], (dataService: DataService, mockBackend: MockBackend) => {
@@ -75,6 +100,7 @@ describe('DataService', () => {
         it('should call backend with headers', async(() => {
             const assertionCall: SinonStub = stub();
             backend.connections.subscribe((connection: MockConnection) => {
+
                 assertThat(connection.request.headers.toJSON().Accept, contains('application/xml')
                 );
                 assertionCall();
@@ -84,15 +110,16 @@ describe('DataService', () => {
             assertThat(assertionCall, wasCalled());
         }));
 
-        xit('should return XML data', async(() => {
+        it('should return XML data', async(() => {
 
             const assertionCall: SinonStub = stub();
             backend.connections.subscribe((connection: MockConnection) => {
-                connection.mockRespond(new Response(returnXMLdoc(null)));
+                connection.mockRespond(new Response(options));
             });
 
-            sut.getXML().subscribe((data) => {
-                // toTo: put test here...
+            sut.getXML().subscribe((response) => {
+                // ToDo: put test here...
+                assertThat(response, is(truthy()));
                 assertionCall();
             });
 
